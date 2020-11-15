@@ -115,7 +115,7 @@ class KlippyGtk:
     def ConfirmDialog(screen, text, buttons, callback=None, *args):
         dialog = Gtk.Dialog()
         #TODO: Factor other resolutions in
-        dialog.set_default_size(984, 580)
+        dialog.set_default_size(self._screen.width - 15, self._screen.height - 15)
         dialog.set_resizable(False)
         dialog.set_transient_for(screen)
         dialog.set_modal(True)
@@ -133,9 +133,11 @@ class KlippyGtk:
         content_area.set_margin_bottom(15)
 
         label = Gtk.Label()
-        label.set_line_wrap(True)
-        label.set_size_request(800, -1)
         label.set_markup(text)
+        label.set_hexpand(True)
+        label.set_halign(Gtk.Align.CENTER)
+        label.set_line_wrap(True)
+            label.set_line_wrap_mode(Pango.WrapMode.WORD_CHAR)
         label.get_style_context().add_class("text")
         table = Gtk.Table(1, 1, False)
         table.attach(label, 0, 1, 0, 1, Gtk.AttachOptions.SHRINK | Gtk.AttachOptions.FILL)
