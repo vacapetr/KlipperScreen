@@ -32,6 +32,7 @@ class Printer:
                     "temperature": 0,
                     "target": 0
                 }
+        self.process_update(data)
 
         logging.info("### Toolcount: " + str(self.toolcount) + " Heaters: " + str(self.extrudercount))
 
@@ -40,6 +41,9 @@ class Printer:
         keys = ['fan','gcode_move','idle_timeout','pause_resume','print_stats','toolhead','virtual_sdcard']
         for x in keys:
             if x in data:
+                if x not in self.data:
+                    self.data[x] = {}
+
                 for y in data[x]:
                     self.data[x][y] = data[x][y]
 
