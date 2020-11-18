@@ -29,9 +29,9 @@ class MovePanel(ScreenPanel):
         self.labels['y-'] = KlippyGtk.ButtonImage("move-y-", "Y-", "color2")
         self.labels['y-'].connect("clicked", self.move, "Y", "-")
 
-        self.labels['z+'] = KlippyGtk.ButtonImage("move-z-", "Z+", "color3")
+        self.labels['z+'] = KlippyGtk.ButtonImage("move-z+", "Z+", "color3")
         self.labels['z+'].connect("clicked", self.move, "Z", "+")
-        self.labels['z-'] = KlippyGtk.ButtonImage("move-z+", "Z-", "color3")
+        self.labels['z-'] = KlippyGtk.ButtonImage("move-z-", "Z-", "color3")
         self.labels['z-'].connect("clicked", self.move, "Z", "-")
 
         self.labels['home'] = KlippyGtk.ButtonImage("home", "Home All")
